@@ -5,6 +5,7 @@ const session = require("express-session");
 const massive = require("massive");
 const passport = require("passport");
 const connectionString = require("../config.js").massive;
+const controller = require("./controllers/controller.js");
 // const Auth0Strategy = require("passport-auth0");
 // const { secret } = require("../config.js").session;
 // const { domain, clientID, clientSecret } = require("../config").auth0;
@@ -29,7 +30,9 @@ app.use(cors());
 // );
 
 //Endpoints!!!!!!!!!!!
-
+app.get("/products", controller.getProducts);
+app.get("/products/:id", controller.getProductsById);
+app.get("/featuredProducts", controller.getFeaturedProducts);
 //test endpoint
 app.get("/api/test", (req, res, next) => {
   const dbInstance = req.app.get("db");

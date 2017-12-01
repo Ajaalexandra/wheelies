@@ -1,0 +1,61 @@
+.top-container {
+  background-image: url("../../Images/man.jpeg");
+  height: 100vh;
+  width: 100%;
+  margin-bottom: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+}
+
+.featured-images {
+  height: 400px;
+  width: 400px;
+}
+
+.mid-container {
+  display: flex;
+  flex-direction: row;
+  height: 40vh;
+  width: 100%;
+}
+
+.left-box {
+  height: 100%;
+  width: 50%;
+  background: #2e3438;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.left-box hr {
+  width: 20%;
+}
+
+.left-box h3 {
+  color: white;
+  width: 60%;
+  margin: auto;
+}
+
+.mid-text {
+  color: white;
+  width: 60%;
+  margin: auto;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+}
+
+.right-box {
+  background-image: url("../../Images/road.jpeg");
+  height: 100%;
+  width: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+h1 {
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+}

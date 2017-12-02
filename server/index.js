@@ -33,6 +33,10 @@ app.use(cors());
 app.get("/products", controller.getProducts);
 app.get("/products/:id", controller.getProductsById);
 app.get("/featuredProducts", controller.getFeaturedProducts);
+app.get("/products/brand/:brand", controller.getFilteredProducts);
+
+app.post("/cart", controller.addToCart);
+
 //test endpoint
 app.get("/api/test", (req, res, next) => {
   const dbInstance = req.app.get("db");

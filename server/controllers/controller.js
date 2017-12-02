@@ -23,5 +23,27 @@ module.exports = {
         res.status(200).json(featured);
       })
       .catch(() => res.status(500).json());
+  },
+
+  getFilteredProducts: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    // console.log(req.params.brand);
+    dbInstance
+      .get_filtered_products([req.params.brand])
+      .then(filtered => {
+        res.status(200).json(filtered);
+      })
+      .catch(() => res.status(500).json());
+  },
+
+  addToCart: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    console.log(req.body);
+    dbInstance
+      .add_to_cart([req.body.product_name, req.body.product_price])
+      .then(response => {
+        res.status(200).json(response);
+      })
+      .catch(() => res.status(500).json());
   }
 };

@@ -8,11 +8,14 @@ class Navbar extends Component {
       <div className="nav-container">
         <div className="nav-left">
           <Link to="/">
-            <img
-              className="nav-logo"
-              src={require("../../Images/logo .jpg")}
-              alt="logo"
-            />
+            <div className="logo">
+              <img
+                className="nav-logo"
+                src={require("../../Images/logo2.png")}
+                alt="logo"
+              />
+              <h3 className="yolo">yolo cycles</h3>
+            </div>
           </Link>
         </div>
 

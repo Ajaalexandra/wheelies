@@ -33,6 +33,7 @@ class Detailed_Products extends Component {
         product_name: bike.model,
         product_price: bike.price
       });
+      alert("Bike added to cart! Yay");
     }
   }
 
@@ -41,6 +42,7 @@ class Detailed_Products extends Component {
     var bike = this.state.product[0];
     return (
       <div>
+        <Navbar />
         {console.log("product", this.state.product)}
         <h1>{bike && bike.model}</h1>
         <p>{bike && bike.description}</p>

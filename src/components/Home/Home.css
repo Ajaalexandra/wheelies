@@ -59,3 +59,7 @@
 h1 {
   font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
 }
+
+.featured-product-container {
+  margin-top: 80px;
+}

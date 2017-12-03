@@ -1,0 +1,12 @@
+hr {
+  width: 40%;
+}
+
+.cart-container {
+  margin-top: 75px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}

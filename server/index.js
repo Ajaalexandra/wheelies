@@ -34,8 +34,10 @@ app.get("/products", controller.getProducts);
 app.get("/products/:id", controller.getProductsById);
 app.get("/featuredProducts", controller.getFeaturedProducts);
 app.get("/products/brand/:brand", controller.getFilteredProducts);
-
+app.get("/cart", controller.getCart);
 app.post("/cart", controller.addToCart);
+app.delete("/cart/:id", controller.deleteItemFromCart);
+app.get("/cart/total", controller.getCartTotal);
 
 //test endpoint
 app.get("/api/test", (req, res, next) => {

@@ -38,9 +38,41 @@ module.exports = {
 
   addToCart: (req, res, next) => {
     const dbInstance = req.app.get("db");
-    console.log(req.body);
+    // console.log(req.body);
     dbInstance
       .add_to_cart([req.body.product_name, req.body.product_price])
+      .then(response => {
+        res.status(200).json(response);
+      })
+      .catch(() => res.status(500).json());
+  },
+
+  getCart: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    dbInstance
+      .get_cart()
+      .then(response => {
+        res.status(200).json(response);
+      })
+      .catch(() => res.status(500).json());
+  },
+
+  deleteItemFromCart: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    // console.log(dbInstance);
+    dbInstance
+      .delete_item_from_cart([req.params.id])
+      .then(response => {
+        res.status(200).json(response);
+      })
+      .catch(() => res.status(500).json());
+  },
+
+  getCartTotal: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    // console.log(dbInstance);
+    dbInstance
+      .get_cart_total()
       .then(response => {
         res.status(200).json(response);
       })

@@ -2,3 +2,23 @@
   height: 350px;
   width: 350px;
 }
+
+.hidden {
+  opacity: 0;
+}
+
+.product-card:hover p {
+  transition: all ease 0.8s;
+  opacity: 1;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+}
+
+.products-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

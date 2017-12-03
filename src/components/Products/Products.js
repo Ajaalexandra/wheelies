@@ -17,6 +17,7 @@ class Products extends Component {
     //binds
     this.handleFilterByBrand = this.handleFilterByBrand.bind(this);
     this.submitFilter = this.submitFilter.bind(this);
+    this.addToCart = this.addToCart.bind(this);
   }
   //axios request
   componentWillMount() {
@@ -32,6 +33,16 @@ class Products extends Component {
     this.setState({ filterBrand: brand });
   }
 
+  addToCart(bike) {
+    if (bike) {
+      axios.post("/cart", {
+        product_name: bike.model,
+        product_price: bike.price
+      });
+      alert("Bike added to cart! Yay");
+    }
+  }
+
   submitFilter() {
     axios.get(`/products/brand/${this.state.filterBrand}`).then(response => {
       this.setState({
@@ -44,12 +55,19 @@ class Products extends Component {
   render() {
     var products = this.state.productsList.map(function(product, index) {
       return (
-        <Link to={`/details/${product.id}`} key={index}>
-          <h1>{product.brand + " " + product.model}</h1>
-          <img src={product.image_url} className="all-images" />
-        </Link>
+        <div key={index}>
+          <Link to={`/details/${product.id}`}>
+            <div className="product-card">
+              <h1>{product.brand + " " + product.model}</h1>
+              <img src={product.image_url} className="all-images" />
+              <p className="hidden">${product.price}.00</p>
+            </div>
+          </Link>
+
+          <button onClick={() => this.addToCart(product)}>ADD TO CART</button>
+        </div>
       );
-    });
+    }, this);
 
     return (
       <div className="products-list">
@@ -70,8 +88,11 @@ class Products extends Component {
         <button className="filter" onClick={() => this.submitFilter()}>
           filter
         </button>
-        <SearchBar />
-        {products}
+        <div className="search-bar">
+          <h3>Search:</h3>
+          <SearchBar />
+        </div>
+        <div className="products-grid">{products}</div>
       </div>
     );
   }

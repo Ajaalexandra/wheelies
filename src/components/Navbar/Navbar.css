@@ -24,6 +24,17 @@
   height: 100px;
   width: 100px;
 }
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: Montserrat, "Helvetica Neue", Arial, sans-serif;
+  color: grey;
+
+  font-size: 16px;
+}
+
 .nav-right {
   display: flex;
   flex-direction: row;

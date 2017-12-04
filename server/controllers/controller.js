@@ -38,9 +38,13 @@ module.exports = {
 
   addToCart: (req, res, next) => {
     const dbInstance = req.app.get("db");
-    // console.log(req.body);
+    console.log(req.body);
     dbInstance
-      .add_to_cart([req.body.product_name, req.body.product_price])
+      .add_to_cart([
+        req.body.product_name,
+        req.body.product_price,
+        req.body.image_url
+      ])
       .then(response => {
         res.status(200).json(response);
       })

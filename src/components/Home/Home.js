@@ -25,7 +25,8 @@ class Home extends Component {
     if (bike) {
       axios.post("/cart", {
         product_name: bike.model,
-        product_price: bike.price
+        product_price: bike.price,
+        image_url: bike.image_url
       });
       alert("Bike added to cart! Yay");
     }

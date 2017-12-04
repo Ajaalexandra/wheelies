@@ -3,7 +3,6 @@ hr {
 }
 
 .cart-container {
-  margin-top: 100px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -13,4 +12,29 @@ hr {
 
 .cart-container h1 {
   margin: auto;
+}
+
+.cart-title {
+  margin-top: 50px;
+}
+
+.cart-img {
+  height: 350px;
+  width: 350px;
+}
+
+.cart-details {
+  height: 500px;
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 200px;
+}
+
+.name-price {
+  margin-left: 60px;
+}
+
+.hr {
+  margin-bottom: 65px;
 }

@@ -1,8 +1,33 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "./Navbar.css";
 
 class Navbar extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      cartTotal: 0
+    };
+  }
+
+  componentWillMount() {
+    axios.get(`/cart`).then(response => {
+      this.setState({
+        cartTotal: response.data.length
+      });
+    });
+  }
+
+  componentWillUpdate() {
+    axios.get(`/cart`).then(response => {
+      this.setState({
+        cartTotal: response.data.length
+      });
+    });
+  }
+
   render() {
     return (
       <div className="nav-container">
@@ -27,7 +52,7 @@ class Navbar extends Component {
             <h3>PRODUCTS</h3>
           </Link>
           <Link to="/cart">
-            <h3>CART</h3>
+            <h3>CART ({this.state.cartTotal})</h3>
           </Link>
         </div>
       </div>

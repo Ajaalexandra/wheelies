@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar.js";
+import Checkout from "../Checkout/Checkout.js";
 import "./ShoppingCart.css";
 
 class ShoppingCart extends Component {
@@ -34,6 +35,9 @@ class ShoppingCart extends Component {
     axios.delete(`/cart/${product.id}`).then(response => {
       this.setState({ productList: response.data });
     });
+    axios.get(`/cart/total`).then(response => {
+      this.setState({ orderTotal: response.data[0].sum });
+    });
   }
 
   // getCartTotal() {
@@ -45,16 +49,18 @@ class ShoppingCart extends Component {
   render() {
     var cart = this.state.productList.map(function(product, index) {
       return (
-        <div key={index} className="cart-list">
-          <h1>{product.image_url}</h1>
-          <h4>{product.product_name}</h4>
-          <h4>${product.product_price}</h4>
-          <button
-            className="delete"
-            onClick={() => this.deleteItemFromCart(product)}
-          >
-            DELETE
-          </button>
+        <div key={index} className="cart-details">
+          <img className="cart-img" src={product.image_url} />
+          <div className="name-price">
+            <h4>{product.product_name}</h4>
+            <h4>${product.product_price}.00</h4>
+            <button
+              className="delete"
+              onClick={() => this.deleteItemFromCart(product)}
+            >
+              DELETE
+            </button>
+          </div>
         </div>
       );
     }, this);
@@ -63,12 +69,16 @@ class ShoppingCart extends Component {
       <div className="shoppingCart-container">
         <Navbar />
 
-        <div className="cart-container">
-          <h1>WELCOME TO YOUR CART</h1>
-          <hr />
-          {cart}
-        </div>
-        <button>PAY NOW</button>
+        <h1 className="cart-title">WELCOME TO YOUR CART</h1>
+        <hr className="hr" />
+
+        <div className="cart-container">{cart}</div>
+        <Checkout
+          className="checkout-button"
+          name={"yolo cycles"}
+          description={"Thank you for shopping with us!"}
+          amount={this.state.orderTotal}
+        />
         <h1>${this.state.orderTotal}.00</h1>
       </div>
     );

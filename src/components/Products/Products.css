@@ -1,6 +1,65 @@
+.products-top-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.select-filter {
+  padding-right: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.select-brand {
+  height: 30px;
+  width: 120px;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-btn {
+  padding: 5px;
+  background: white;
+  color: #444;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  font-size: 14px;
+  height: 30px;
+  width: 80px;
+  margin-left: 15px;
+}
+
+.filter-btn:hover {
+  transition: all ease 0.7s;
+  background: #444;
+  color: #fff;
+}
+
+.products-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 .all-images {
   height: 350px;
   width: 350px;
+}
+
+.product-info {
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  color: black;
 }
 
 .hidden {
@@ -12,13 +71,11 @@
   opacity: 1;
 }
 
-.search-bar {
-  display: flex;
-  flex-direction: row;
+.product-card:hover button {
+  transition: all ease 0.8s;
+  opacity: 1;
 }
 
-.products-grid {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.products {
+  margin-bottom: 58px;
 }

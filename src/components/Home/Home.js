@@ -11,6 +11,7 @@ class Home extends Component {
     this.state = {
       featuredProducts: []
     };
+    this.addToCart = this.addToCart.bind(this);
   }
 
   componentWillMount() {
@@ -20,14 +21,35 @@ class Home extends Component {
     });
   }
 
+  addToCart(bike) {
+    if (bike) {
+      axios.post("/cart", {
+        product_name: bike.model,
+        product_price: bike.price
+      });
+      alert("Bike added to cart! Yay");
+    }
+  }
+
   render() {
     var featured = this.state.featuredProducts.map(function(featured, index) {
       return (
-        <Link to={`details/${featured.id}`} key={index}>
-          <img src={featured.image_url} className="featured-images" />
-        </Link>
+        <div key={index} className="product-card">
+          <Link to={`details/${featured.id}`}>
+            <img src={featured.image_url} className="featured-images" />
+            <h1 className="product-info">{featured.brand}</h1>
+            <p className="hidden product-info">${featured.price}.00</p>
+          </Link>
+
+          <button
+            className="hidden addToCart"
+            onClick={() => this.addToCart(featured)}
+          >
+            ADD TO CART
+          </button>
+        </div>
       );
-    });
+    }, this);
 
     return (
       <div className="home-container">
@@ -51,10 +73,8 @@ class Home extends Component {
           <div className="right-box" />
         </div>
 
-        <div className="featured-product-container">
-          <h1 className="products">FEATURED PRODUCTS</h1>
-          {featured}
-        </div>
+        <h1 className="products">FEATURED PRODUCTS</h1>
+        <div className="featured-product-container">{featured}</div>
       </div>
     );
   }

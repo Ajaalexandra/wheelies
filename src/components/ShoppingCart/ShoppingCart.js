@@ -46,8 +46,9 @@ class ShoppingCart extends Component {
     var cart = this.state.productList.map(function(product, index) {
       return (
         <div key={index} className="cart-list">
+          <h1>{product.image_url}</h1>
           <h4>{product.product_name}</h4>
-          <h4>{product.product_price}</h4>
+          <h4>${product.product_price}</h4>
           <button
             className="delete"
             onClick={() => this.deleteItemFromCart(product)}
@@ -61,11 +62,14 @@ class ShoppingCart extends Component {
     return (
       <div className="shoppingCart-container">
         <Navbar />
-        <h1>WELCOME TO YOUR CART</h1>
-        <hr />
-        <div className="cart-container">{cart}</div>
+
+        <div className="cart-container">
+          <h1>WELCOME TO YOUR CART</h1>
+          <hr />
+          {cart}
+        </div>
         <button>PAY NOW</button>
-        <h1>{this.state.orderTotal}</h1>
+        <h1>${this.state.orderTotal}.00</h1>
       </div>
     );
   }

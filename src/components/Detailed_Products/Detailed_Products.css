@@ -1,0 +1,39 @@
+.detailed-main-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 100px;
+}
+
+.detailed-left-container {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  width: 50vw;
+  margin-left: 48px;
+  margin-right: 100px;
+}
+
+.detailed-right-container h3 {
+  margin-top: 38px;
+}
+
+.detailed-description {
+  padding-right: 100px;
+  padding-left: 100px;
+}
+
+.addToCart {
+  background: white;
+  color: #444;
+  margin-bottom: 20px;
+  border-style: none;
+  padding: 7px;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.addToCart:hover {
+  background: #444;
+  color: white;
+}

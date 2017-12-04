@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar.js";
-import "./Detailed_Products";
+import "./Detailed_Products.css";
 
 class Detailed_Products extends Component {
   constructor() {
@@ -43,13 +43,24 @@ class Detailed_Products extends Component {
     return (
       <div>
         <Navbar />
+
         {console.log("product", this.state.product)}
-        <h1>{bike && bike.model}</h1>
-        <p>{bike && bike.description}</p>
-        <img src={bike && bike.image_url} />
-        <button className="addToCart" onClick={() => this.addToCart(bike)}>
-          ADD TO CART
-        </button>
+        <div className="detailed-main-container">
+          <img
+            className="detailed-left-container"
+            src={bike && bike.image_url}
+          />
+          <div className="detailed-right-container">
+            <h1>{bike && bike.model}</h1>
+            <hr />
+            <h3>PRODUCT DESCRIPTION:</h3>
+            <p className="detailed-description">{bike && bike.description}</p>
+            <p>${bike && bike.price}.00</p>
+            <button className="addToCart" onClick={() => this.addToCart(bike)}>
+              ADD TO CART
+            </button>
+          </div>
+        </div>
       </div>
     );
   }

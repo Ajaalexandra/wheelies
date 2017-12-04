@@ -55,43 +55,59 @@ class Products extends Component {
   render() {
     var products = this.state.productsList.map(function(product, index) {
       return (
-        <div key={index}>
+        <div key={index} className="product-card">
           <Link to={`/details/${product.id}`}>
-            <div className="product-card">
-              <h1>{product.brand + " " + product.model}</h1>
+            <div>
               <img src={product.image_url} className="all-images" />
-              <p className="hidden">${product.price}.00</p>
+              <h1 className="product-info">
+                {product.brand + " " + product.model}
+              </h1>
+              <p className="hidden product-info">${product.price}.00</p>
             </div>
           </Link>
 
-          <button onClick={() => this.addToCart(product)}>ADD TO CART</button>
+          <button
+            className="hidden addToCart"
+            onClick={() => this.addToCart(product)}
+          >
+            ADD TO CART
+          </button>
         </div>
       );
     }, this);
 
     return (
-      <div className="products-list">
+      <div className="products-main-container">
         <Navbar />
-        <select
-          className="select-brand"
-          onChange={e => this.handleFilterByBrand(e.target.value)}
-        >
-          <option value="BMW">BMW</option>
-          <option value="Ducati">Ducati</option>
-          <option value="Honda">Honda</option>
-          <option value="Indian">Indian</option>
-          <option value="Kawasaki">Kawasaki</option>
-          <option value="Suzuki">Suzuki</option>
-          <option value="Yamaha">Yamaha</option>
-        </select>
+        <div className="products-top-container">
+          <div className="select-filter">
+            <select
+              className="select-brand"
+              onChange={e => this.handleFilterByBrand(e.target.value)}
+            >
+              <option value=" " disabled selected>
+                SELECT BRAND
+              </option>
+              <option value="BMW">BMW</option>
+              <option value="Ducati">Ducati</option>
+              <option value="Honda">Honda</option>
+              <option value="Indian">Indian</option>
+              <option value="Kawasaki">Kawasaki</option>
+              <option value="Suzuki">Suzuki</option>
+              <option value="Yamaha">Yamaha</option>
+            </select>
 
-        <button className="filter" onClick={() => this.submitFilter()}>
-          filter
-        </button>
-        <div className="search-bar">
-          <h3>Search:</h3>
-          <SearchBar />
+            <button className="filter-btn" onClick={() => this.submitFilter()}>
+              FILTER
+            </button>
+          </div>
+
+          <div className="search-bar">
+            <h3>SEARCH:</h3>
+            <SearchBar />
+          </div>
         </div>
+        <h1 className="products">PRODUCTS</h1>
         <div className="products-grid">{products}</div>
       </div>
     );

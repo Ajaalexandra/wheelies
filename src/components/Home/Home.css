@@ -1,7 +1,8 @@
 .top-container {
-  background-image: url("../../Images/man.jpeg");
+  background-image: url("../../Images/bike2.jpeg");
   height: 100vh;
   width: 100%;
+
   margin-bottom: 0;
   background-size: cover;
   background-repeat: no-repeat;
@@ -16,8 +17,9 @@
 .mid-container {
   display: flex;
   flex-direction: row;
-  height: 40vh;
+  height: 60vh;
   width: 100%;
+  margin-bottom: 50px;
 }
 
 .left-box {
@@ -48,7 +50,7 @@
 }
 
 .right-box {
-  background-image: url("../../Images/road.jpeg");
+  background-image: url("../../Images/kid.jpeg");
   height: 100%;
   width: 50%;
   background-size: cover;
@@ -62,4 +64,8 @@ h1 {
 
 .featured-product-container {
   margin-top: 80px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }

@@ -30,7 +30,7 @@
   flex-direction: row;
   align-items: center;
   font-family: Montserrat, "Helvetica Neue", Arial, sans-serif;
-  color: grey;
+  color: #444;
 
   font-size: 16px;
 }
@@ -46,4 +46,8 @@
 
 .nav-right h3 {
   color: black;
+}
+
+.nav-right h3:hover {
+  color: grey;
 }

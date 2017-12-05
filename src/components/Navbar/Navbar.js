@@ -39,7 +39,7 @@ class Navbar extends Component {
                 src={require("../../Images/logo2.png")}
                 alt="logo"
               />
-              <h3 className="yolo">yolo cycles</h3>
+              <h3 className="yolo">Yolo Cycles</h3>
             </div>
           </Link>
         </div>

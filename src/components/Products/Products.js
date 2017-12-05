@@ -33,6 +33,13 @@ class Products extends Component {
     this.setState({ filterBrand: brand });
   }
 
+  clearFilter() {
+    axios.get("/products").then(response => {
+      this.setState({ productsList: response.data });
+      console.log("productsList", this.state.productsList);
+    });
+  }
+
   addToCart(bike) {
     if (bike) {
       axios.post("/cart", {
@@ -100,6 +107,12 @@ class Products extends Component {
 
             <button className="filter-btn" onClick={() => this.submitFilter()}>
               FILTER
+            </button>
+            <button
+              className="clear-btn filter-btn"
+              onClick={() => this.clearFilter()}
+            >
+              CLEAR
             </button>
           </div>
 

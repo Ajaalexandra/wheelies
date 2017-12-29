@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar.js";
+import Footer from "../Footer/Footer.js";
 import "./Home.css";
 
 class Home extends Component {
@@ -76,6 +77,8 @@ class Home extends Component {
 
         <h1 className="products">FEATURED PRODUCTS</h1>
         <div className="featured-product-container">{featured}</div>
+
+        <Footer />
       </div>
     );
   }

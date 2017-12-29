@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar.js";
+import Footer from "../Footer/Footer.js";
 import Checkout from "../Checkout/Checkout.js";
 import "./ShoppingCart.css";
 
@@ -79,7 +80,8 @@ class ShoppingCart extends Component {
           description={"Thank you for shopping with us!"}
           amount={this.state.orderTotal}
         />
-        <h1>${this.state.orderTotal}.00</h1>
+        <h1>Total: ${this.state.orderTotal}.00</h1>
+        <Footer />
       </div>
     );
   }

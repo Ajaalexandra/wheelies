@@ -1,0 +1,29 @@
+.footer-container {
+  background-color: #f2f2f2;
+  width: 100%;
+  height: 325px;
+}
+
+.footer-middleText {
+  padding: 20px;
+}
+
+.footer-company-info ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+  font-size: 12px;
+  padding-left: 400px;
+  padding-right: 400px;
+}
+
+.footer-socialMedia {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 700px;
+  padding-right: 700px;
+}

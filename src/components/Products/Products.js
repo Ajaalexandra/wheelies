@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar.js";
+import Footer from "../Footer/Footer.js";
 import SearchBar from "../SearchBar/SearchBar.js";
 import "./Products.css";
 
@@ -123,6 +124,7 @@ class Products extends Component {
         </div>
         <h1 className="products">PRODUCTS</h1>
         <div className="products-grid">{products}</div>
+        <Footer />
       </div>
     );
   }

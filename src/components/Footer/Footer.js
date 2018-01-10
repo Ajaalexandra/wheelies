@@ -28,11 +28,10 @@ class Footer extends Component {
           </ul>
         </div>
         <div className="footer-socialMedia">
-          <link>
-            <i className="fa fa-facebook" aria-hidden="true" />
-          </link>
+          <i className="fa fa-facebook" aria-hidden="true" />
           <i class="fa fa-twitter" aria-hidden="true" />
           <i class="fa fa-linkedin" aria-hidden="true" />
+
           <i class="fa fa-instagram" aria-hidden="true" />
         </div>
       </div>

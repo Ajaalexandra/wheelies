@@ -1,17 +1,24 @@
+require("dotenv").config();
 const express = require("express");
 const { json } = require("body-parser");
 const cors = require("cors");
 const session = require("express-session");
 const massive = require("massive");
 const passport = require("passport");
-const connectionString = require("../config.js").massive;
+
+// const connectionString = require("../config.js").massive;
+const connectionString = process.env.CONNECTION_STRING;
+const secretKey = process.env.SECRET_KEY;
 const controller = require("./controllers/controller.js");
+
+console.log(secretKey);
+
 // const Auth0Strategy = require("passport-auth0");
 // const { secret } = require("../config.js").session;
 // const { domain, clientID, clientSecret } = require("../config").auth0;
 
 //Sprite
-const { secretKey } = require("../config.js").stripe;
+// const { secretKey } = require("../config.js").stripe;
 const stripe = require("stripe")(secretKey);
 const SERVER_CONFIGS = require("./constants/server");
 
@@ -25,7 +32,7 @@ configureServer(app);
 configureRoutes(app);
 
 //need massive to connect database to node Server
-massive(connectionString)
+massive(process.env.CONNECTION_STRING)
   .then(dbInstance => app.set("db", dbInstance))
   .catch(console.log);
 
@@ -39,6 +46,7 @@ app.use(cors());
 //     saveUninitialized: false
 //   })
 // );
+app.use(express.static(`${__dirname}/../build`));
 
 //Endpoints!!!!!!!!!!!
 app.get("/products", controller.getProducts);
@@ -70,6 +78,11 @@ app.get("/api/test", (req, res, next) => {
     .getUsers()
     .then(users => res.status(200).json(users))
     .catch(() => res.status(500).json());
+});
+
+const path = require("path");
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"));
 });
 
 app.listen(port, () => {

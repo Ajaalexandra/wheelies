@@ -20,7 +20,7 @@ class ShoppingCart extends Component {
   }
 
   //axios call
-  componentWillMount() {
+  componentDidMount() {
     axios.get(`/cart`).then(response => {
       this.setState({ productList: response.data });
       console.log(response.data);

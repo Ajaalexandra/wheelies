@@ -12,7 +12,7 @@ class Navbar extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get(`/cart`).then(response => {
       this.setState({
         cartTotal: response.data.length

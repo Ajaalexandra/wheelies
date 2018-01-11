@@ -17,7 +17,7 @@ console.log(secretKey);
 // const { secret } = require("../config.js").session;
 // const { domain, clientID, clientSecret } = require("../config").auth0;
 
-//Sprite
+//STRIPE
 // const { secretKey } = require("../config.js").stripe;
 const stripe = require("stripe")(secretKey);
 const SERVER_CONFIGS = require("./constants/server");
@@ -25,7 +25,7 @@ const SERVER_CONFIGS = require("./constants/server");
 const configureServer = require("./server");
 const configureRoutes = require("./routes");
 
-const port = 3001;
+const port = process.env.PORT || 3001;
 const app = express();
 
 configureServer(app);
@@ -39,14 +39,14 @@ massive(process.env.CONNECTION_STRING)
 //Middlewares
 app.use(json());
 app.use(cors());
-// app.use(
-//   session({
-//     secret,
-//     resave: false,
-//     saveUninitialized: false
-//   })
-// );
-app.use(express.static(`${__dirname}/../build`));
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+  })
+);
+app.use(express.static(`${__dirname}/build`));
 
 //Endpoints!!!!!!!!!!!
 app.get("/products", controller.getProducts);

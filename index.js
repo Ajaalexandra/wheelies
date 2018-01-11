@@ -82,7 +82,8 @@ app.get("/api/test", (req, res, next) => {
 
 const path = require("path");
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../build/index.html"));
+  res.sendFile(path.join(__dirname, "build/index.html"));
+  console.log();
 });
 
 app.listen(port, () => {

@@ -31,9 +31,7 @@ export default class SearchBar extends Component {
       .on("autocomplete:selected", function(event, suggestion, dataset) {
         console.log("Selected Item: ", suggestion, dataset);
         console.log("Desc: ", suggestion);
-        window.location.replace(
-          `http://localhost:3000/details/${suggestion.id}`
-        );
+        window.location.replace(`/details/${suggestion.id}`);
       });
   }
 
